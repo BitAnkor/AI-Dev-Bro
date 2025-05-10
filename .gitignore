@@ -1,0 +1,35 @@
+# Entornos virtuales de Python
+env/
+.env
+.env.*
+
+# Archivos de Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.log
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Salidas de construcción
+dist/
+build/
+*.egg-info/
+
+# Tailwind CSS (si usas output manual)
+public/build/
+*.css.map
+
+# Railway (no necesitas ignorar nada específico de Railway)
+
+# Otros
+.idea/
+.vscode/

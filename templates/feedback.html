@@ -1,0 +1,18 @@
+<h2 class="text-2xl font-semibold mb-4">Deja tu comentario 🗣️</h2>
+<form method="post" class="space-y-2">
+  <input type="text" name="name" placeholder="Tu nombre" class="border p-2 w-full" required />
+  <textarea name="comment" placeholder="Comentario" class="border p-2 w-full" required></textarea>
+  <input type="number" name="rating" min="1" max="5" class="border p-2 w-full" required />
+  <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Enviar</button>
+</form>
+
+<h3 class="mt-6 text-xl font-semibold">Comentarios recientes</h3>
+<ul class="mt-2 space-y-2">
+  {% for c in comments %}
+    <li class="bg-white p-2 shadow rounded">
+      <strong>{{ c.name }}</strong> (⭐ {{ c.rating }})<br/>
+      {{ c.comment }}<br/>
+      <small class="text-gray-500">{{ c.date[:10] }}</small>
+    </li>
+  {% endfor %}
+</ul>
