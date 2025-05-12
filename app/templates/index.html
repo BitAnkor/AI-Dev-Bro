@@ -1,130 +1,71 @@
-
-<!-- En tu archivo templates/index.html -->
+<!-- app/templates/index.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Dev Bro - Portafolio</title>
+    <!-- Importación de Tailwind CSS (asegúrate de haber ejecutado npm run build) -->
     <link href="{{ url_for('static', path='/css/main.css') }}" rel="stylesheet">
-    <title>AI Dev Bro - Desarrollador Full Stack</title>
-    <!-- Tailwind ya está configurado en tu proyecto según tu repo -->
+    <!-- Font Awesome (opcional) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-900 text-gray-100 min-h-screen font-sans">
+<body class="bg-gray-900 text-gray-100 min-h-screen">
     <!-- Navbar -->
-    <nav class="bg-gray-800/90 backdrop-blur-sm fixed w-full z-10">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center">
-                    <span class="text-xl font-bold bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">
-                        AI Dev Bro
-                    </span>
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#" class="px-3 py-2 rounded-md text-sm font-medium text-white bg-blue-600">Inicio</a>
-                        <a href="#" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700">Proyectos</a>
-                        <a href="#" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700">Contacto</a>
-                    </div>
-                </div>
+    <nav class="bg-gray-800/90 backdrop-blur-sm fixed w-full z-10 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <span class="text-2xl font-bold bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">
+                AI Dev Bro
+            </span>
+            <div class="hidden md:flex space-x-6">
+                <a href="#" class="px-4 py-2 rounded-md bg-blue-600/20 text-blue-400">Inicio</a>
+                <a href="#" class="px-4 py-2 rounded-md hover:bg-white/5">Proyectos</a>
+                <a href="#" class="px-4 py-2 rounded-md hover:bg-white/5">Contacto</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <div class="pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div class="text-center">
-            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">
-                <span class="block bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">
-                    Transformando ideas
-                </span>
-                <span class="block text-blue-400">en realidad digital</span>
+    <main class="pt-32 pb-20 px-6 max-w-7xl mx-auto">
+        <section class="text-center">
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+                <span class="bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">Desarrollo</span>
+                <span class="block">soluciones con IA</span>
             </h1>
-            <p class="mt-6 max-w-lg mx-auto text-xl text-gray-300">
-                Desarrollador Full Stack especializado en IA y soluciones escalables.
+            <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+                Creando aplicaciones web inteligentes y escalables con tecnologías modernas.
             </p>
-            <div class="mt-10 flex justify-center gap-4">
-                <a href="#" class="px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20">
-                    Ver Proyectos
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#" class="px-6 py-3 rounded-lg bg-gradient-to-r from-purple-500 to-blue-600 text-white font-medium hover:shadow-lg hover:shadow-blue-500/20 transition-all">
+                    Ver mis proyectos
                 </a>
-                <a href="#" class="px-8 py-3 border border-transparent text-base font-medium rounded-md text-blue-100 bg-blue-900 hover:bg-blue-800 md:py-4 md:text-lg md:px-10 transition-all duration-300">
+                <a href="#" class="px-6 py-3 rounded-lg border border-blue-500 text-blue-400 hover:bg-blue-500/10 transition-all">
                     Contactar
                 </a>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- Tech Stack Section -->
-    <div class="py-12 bg-gray-800/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-center text-3xl font-extrabold text-white mb-12">
+        <!-- Sección de Tecnologías -->
+        <section class="mt-20">
+            <h2 class="text-3xl font-bold text-center mb-12">
                 <span class="border-b-2 border-blue-500 pb-2">Tecnologías</span>
             </h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <!-- Ejemplo de tarjeta de tecnología -->
-                <div class="col-span-1 flex flex-col items-center">
-                    <div class="p-4 bg-gray-700 rounded-lg shadow-lg w-24 h-24 flex items-center justify-center">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="h-12 w-12" alt="Python">
-                    </div>
-                    <h3 class="mt-4 text-lg font-medium text-white">Python</h3>
+                <div class="bg-gray-800/50 p-6 rounded-xl flex flex-col items-center hover:bg-gray-800/70 transition-all">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="h-16 w-16 mb-4" alt="Python">
+                    <span class="font-medium">Python</span>
                 </div>
-                <!-- Repetir para otras tecnologías -->
+                <!-- Más tecnologías aquí -->
             </div>
-        </div>
-    </div>
-
-    <!-- Projects Preview -->
-    <div class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <h2 class="text-center text-3xl font-extrabold text-white mb-12">
-            <span class="border-b-2 border-blue-500 pb-2">Proyectos Destacados</span>
-        </h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Ejemplo de tarjeta de proyecto -->
-            <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300">
-                <div class="h-48 bg-gradient-to-r from-purple-500 to-blue-600 flex items-center justify-center">
-                    <span class="text-white text-xl font-bold">AI Project</span>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold text-white mb-2">Sistema de Recomendación</h3>
-                    <p class="text-gray-300 mb-4">IA que predice preferencias de usuarios con 95% de precisión.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-2 py-1 text-xs rounded-full bg-blue-900 text-blue-100">Python</span>
-                        <span class="px-2 py-1 text-xs rounded-full bg-purple-900 text-purple-100">TensorFlow</span>
-                    </div>
-                </div>
-            </div>
-            <!-- Más proyectos... -->
-        </div>
-    </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800/80 mt-12">
-        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <span class="text-xl font-bold bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">
-                        AI Dev Bro
-                    </span>
-                    <p class="mt-2 text-gray-400">Desarrollando el futuro con IA.</p>
-                </div>
-                <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-white">
-                        <i class="fab fa-github text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white">
-                        <i class="fab fa-linkedin text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white">
-                        <i class="fab fa-twitter text-xl"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="mt-8 border-t border-gray-700 pt-8 text-center text-gray-400 text-sm">
-                <p>© 2023 AI Dev Bro. Todos los derechos reservados.</p>
-            </div>
+    <footer class="bg-gray-800/80 py-12 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-gray-400">© 2023 AI Dev Bro. Todos los derechos reservados.</p>
         </div>
     </footer>
-
-    <!-- Font Awesome para íconos (opcional) -->
-    <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@ from fastapi.responses import RedirectResponse
 
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="app/static/css"), name="static")
+app.mount("/static", StaticFiles(directory="app/static/"), name="static")
 templates = Jinja2Templates(directory="app/templates")
 
 
