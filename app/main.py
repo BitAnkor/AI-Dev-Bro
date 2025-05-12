@@ -17,14 +17,10 @@ def home(request: Request):
     return templates.TemplateResponse("index.html", {"request": request, "visits": count})
 
 @app.get("/feedback")
-def feedback_form(request: Request):
-    comments = load_comments()
-    return templates.TemplateResponse("feedback.html", {"request": request, "comments": comments})
+async def feedback(request: Request):
+    return templates.TemplateResponse("feedback.html", {"request": request})
 
-@app.post("/feedback")
-def submit_comment(name: str = Form(...), comment: str = Form(...), rating: int = Form(...)):
-    save_comment(name,comment,rating)
-    return RedirectResponse("/feedback", status_code=303)
+
 
 @app.get("/projects")
 def projects(request: Request):
