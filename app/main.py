@@ -2,7 +2,6 @@ from fastapi import FastAPI, Request, Form
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from app.visits import increment_visits
-from app.comments import load_comments, save_comment
 from fastapi.responses import RedirectResponse
 
 app = FastAPI()
