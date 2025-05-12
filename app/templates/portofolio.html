@@ -4,10 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio | AI Dev Bro</title>
+    <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuración personalizada inline -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                            700: '#334155',
+                        },
+                        accent: {
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <style type="text/tailwindcss">
+        @layer components {
+            .btn-primary {
+                @apply px-6 py-3 rounded-lg bg-gradient-to-r from-accent-500 to-blue-500 text-white font-medium hover:from-accent-600 hover:to-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-blue-500/20;
+            }
+            .project-card {
+                @apply bg-gray-800/50 rounded-xl overflow-hidden hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300;
+            }
+            .tech-badge {
+                @apply px-3 py-1 rounded-full text-xs font-mono bg-accent-500/10 text-accent-400;
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-900 text-gray-100 min-h-screen font-sans">
+<body class="bg-primary-900 text-gray-100 min-h-screen font-sans">
     <!-- Navbar -->
     <nav class="bg-gray-800/90 backdrop-blur-sm fixed w-full z-50 px-6 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
@@ -22,136 +62,65 @@
         </div>
     </nav>
 
-    <!-- Hero Portafolio -->
-    <header class="pt-32 pb-20 px-6 max-w-7xl mx-auto text-center">
-        <h1 class="text-4xl md:text-6xl font-bold mb-6">
-            <span class="bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">Mis</span>
-            <span class="block">Proyectos</span>
-        </h1>
-        <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-            Soluciones tecnológicas innovadoras desarrolladas con las últimas herramientas de IA y desarrollo web.
-        </p>
-    </header>
+    <!-- Contenido Principal -->
+    <main class="pt-32 pb-20 px-6 max-w-7xl mx-auto">
+        <!-- Hero -->
+        <section class="text-center mb-20">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                <span class="bg-gradient-to-r from-accent-500 to-blue-500 bg-clip-text text-transparent">Mis</span>
+                <span class="block">Proyectos</span>
+            </h1>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                Soluciones tecnológicas innovadoras desarrolladas con las últimas herramientas.
+            </p>
+        </section>
 
-    <!-- Sección de Proyectos -->
-    <main class="pb-20 px-6 max-w-7xl mx-auto">
+        <!-- Grid de Proyectos -->
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Proyecto 1 -->
-            <div class="bg-gray-800/50 rounded-xl overflow-hidden hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 group">
-                <div class="h-48 bg-gradient-to-br from-purple-500 to-blue-600 flex items-center justify-center relative overflow-hidden">
-                    <img src="{{ url_for('static', path='/img/project1-thumb.jpg') }}" alt="Proyecto IA" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300"></div>
-                    <span class="text-xl font-bold z-10">Sistema de Recomendación</span>
+            <div class="project-card">
+                <div class="h-48 bg-gradient-to-br from-purple-500 to-blue-600 flex items-center justify-center">
+                    <span class="text-xl font-bold">Proyecto IA</span>
                 </div>
                 <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">Motor de Recomendación con IA</h3>
-                    <p class="text-gray-400 mb-4">Modelo de machine learning que predice preferencias de usuarios con 92% de precisión.</p>
+                    <h3 class="text-xl font-bold mb-2">Sistema de Recomendación</h3>
+                    <p class="text-gray-400 mb-4">Modelo de ML con 92% de precisión en predicciones.</p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-2 py-1 text-xs rounded-full bg-blue-900/50 text-blue-400">Python</span>
-                        <span class="px-2 py-1 text-xs rounded-full bg-purple-900/50 text-purple-400">TensorFlow</span>
-                        <span class="px-2 py-1 text-xs rounded-full bg-gray-700 text-gray-300">FastAPI</span>
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">TensorFlow</span>
                     </div>
-                    <a href="/projects/1" class="mt-4 inline-block text-blue-400 hover:text-blue-300 text-sm font-medium flex items-center">
-                        Ver detalles <i class="fas fa-arrow-right ml-2"></i>
+                    <a href="#" class="mt-4 inline-block text-blue-400 hover:text-blue-300 text-sm font-medium">
+                        Ver detalles →
                     </a>
                 </div>
             </div>
 
             <!-- Proyecto 2 -->
-            <div class="bg-gray-800/50 rounded-xl overflow-hidden hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 group">
-                <div class="h-48 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center relative overflow-hidden">
-                    <img src="{{ url_for('static', path='/img/project2-thumb.jpg') }}" alt="Dashboard" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <span class="text-xl font-bold z-10">Dashboard Analítico</span>
+            <div class="project-card">
+                <div class="h-48 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
+                    <span class="text-xl font-bold">Dashboard</span>
                 </div>
                 <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">Visualización de Datos en Tiempo Real</h3>
-                    <p class="text-gray-400 mb-4">Plataforma de análisis de datos con visualizaciones interactivas.</p>
+                    <h3 class="text-xl font-bold mb-2">Visualización de Datos</h3>
+                    <p class="text-gray-400 mb-4">Plataforma analítica en tiempo real.</p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-2 py-1 text-xs rounded-full bg-green-900/50 text-green-400">JavaScript</span>
-                        <span class="px-2 py-1 text-xs rounded-full bg-blue-900/50 text-blue-400">D3.js</span>
-                        <span class="px-2 py-1 text-xs rounded-full bg-gray-700 text-gray-300">Flask</span>
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">D3.js</span>
                     </div>
-                    <a href="/projects/2" class="mt-4 inline-block text-blue-400 hover:text-blue-300 text-sm font-medium flex items-center">
-                        Ver detalles <i class="fas fa-arrow-right ml-2"></i>
+                    <a href="#" class="mt-4 inline-block text-blue-400 hover:text-blue-300 text-sm font-medium">
+                        Ver detalles →
                     </a>
                 </div>
             </div>
-
-            <!-- Más proyectos... -->
+            
+            <!-- Añade más proyectos aquí -->
         </div>
     </main>
 
-    <!-- Sección de Habilidades -->
-    <section class="py-16 bg-gray-800/50">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12">
-                <span class="border-b-2 border-blue-500 pb-2">Tecnologías Principales</span>
-            </h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <!-- Tecnología 1 -->
-                <div class="bg-gray-700/50 p-6 rounded-xl flex flex-col items-center hover:bg-gray-700 transition-all">
-                    <div class="w-16 h-16 mb-4 flex items-center justify-center text-blue-400">
-                        <i class="fab fa-python text-5xl"></i>
-                    </div>
-                    <h3 class="font-medium">Python</h3>
-                    <p class="text-gray-400 text-sm mt-1">Experto</p>
-                </div>
-                <!-- Más tecnologías... -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Contacto -->
-    <section id="contact" class="py-20 px-6 max-w-4xl mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-12">
-            <span class="border-b-2 border-blue-500 pb-2">Contacto</span>
-        </h2>
-        <form class="space-y-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                    <label for="name" class="block text-gray-400 mb-2">Nombre</label>
-                    <input type="text" id="name" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 transition-all">
-                </div>
-                <div>
-                    <label for="email" class="block text-gray-400 mb-2">Email</label>
-                    <input type="email" id="email" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 transition-all">
-                </div>
-            </div>
-            <div>
-                <label for="message" class="block text-gray-400 mb-2">Mensaje</label>
-                <textarea id="message" rows="4" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 transition-all"></textarea>
-            </div>
-            <button type="submit" class="w-full md:w-auto px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-600 text-white font-medium rounded-lg hover:shadow-lg hover:shadow-blue-500/20 transition-all">
-                Enviar Mensaje
-            </button>
-        </form>
-    </section>
-
     <!-- Footer -->
     <footer class="bg-gray-800/80 py-12 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <span class="text-2xl font-bold bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">
-                        AI Dev Bro
-                    </span>
-                    <p class="mt-2 text-gray-400">Desarrollando soluciones con inteligencia artificial</p>
-                </div>
-                <div class="flex space-x-6">
-                    <a href="https://github.com/BitAnkor" target="_blank" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-github text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-linkedin text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-twitter text-xl"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="mt-8 border-t border-gray-700 pt-8 text-center text-gray-500 text-sm">
-                <p>© 2023 AI Dev Bro. Todos los derechos reservados.</p>
-            </div>
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-gray-400">© 2023 AI Dev Bro. Todos los derechos reservados.</p>
         </div>
     </footer>
 </body>
