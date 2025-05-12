@@ -1,17 +1,15 @@
 {
-  "name": "project-ai-dev-bro",
+  "name": "ai-dev-bro",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npx tailwindcss -i ./app/static/src/main.css -o ./app/static/css/main.css --watch",
+    "build": "npx tailwindcss -i ./app/static/src/main.css -o ./app/static/css/main.css --minify"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "devDependencies": {
-    "autoprefixer": "^10.4.21",
-    "postcss": "^8.5.3",
-    "tailwindcss": "^3.4.17"
+    "@tailwindcss/forms": "^0.5.3",
+    "@tailwindcss/typography": "^0.5.9",
+    "autoprefixer": "^10.4.15",
+    "postcss": "^8.4.29",
+    "tailwindcss": "^3.3.3"
   }
 }

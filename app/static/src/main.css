@@ -1,0 +1,59 @@
+/* app/static/src/main.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Base Styles */
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-primary-900 text-gray-100 font-sans antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-bold tracking-tighter;
+  }
+}
+
+/* Custom Components */
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 rounded-lg bg-gradient-to-r from-accent-500 to-electric-400 text-white font-medium hover:from-accent-600 hover:to-electric-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-accent-500/20;
+  }
+  
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-xl hover:shadow-glass transition-all duration-500;
+  }
+  
+  .nav-link {
+    @apply px-4 py-2 rounded-md hover:bg-white/5 transition-colors duration-200 text-gray-300 hover:text-white;
+  }
+  
+  .tech-badge {
+    @apply px-3 py-1 rounded-full text-xs font-mono bg-accent-500/10 text-accent-400;
+  }
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-400 to-electric-400;
+  }
+  
+  .shadow-glass {
+    box-shadow: 0 8px 32px 0 rgba(99, 102, 241, 0.15);
+    backdrop-filter: blur(4px);
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+}
