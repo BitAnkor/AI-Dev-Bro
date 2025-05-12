@@ -20,6 +20,11 @@ async def feedback(request: Request):
     return templates.TemplateResponse("feedback.html", {"request": request})
 
 
+@app.get("/portfolio")
+async def portfolio(request: Request):
+    return templates.TemplateResponse("portfolio.html", {"request": request})
+
+
 
 @app.get("/projects")
 def projects(request: Request):
