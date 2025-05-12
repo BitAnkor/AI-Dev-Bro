@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Dev Bro</title>
+  <link href="/static/css/styles.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <nav class="bg-white shadow p-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold">AI Dev Bro</h1>
+    <ul class="flex gap-4">
+      <li><a href="/" class="hover:text-blue-600">Inicio</a></li>
+      <li><a href="/projects" class="hover:text-blue-600">Proyectos</a></li>
+      <li><a href="/agent" class="hover:text-blue-600">IA Bro</a></li>
+      <li><a href="/feedback" class="hover:text-blue-600">Comentarios</a></li>
+    </ul>
+  </nav>
+  <main class="p-6">
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>
