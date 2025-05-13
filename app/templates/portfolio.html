@@ -1,127 +1,71 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio | AI Dev Bro</title>
-    <!-- Tailwind CSS via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Configuración personalizada inline -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            900: '#0f172a',
-                            800: '#1e293b',
-                            700: '#334155',
-                        },
-                        accent: {
-                            500: '#6366f1',
-                            600: '#4f46e5',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <!-- Estilos personalizados -->
-    <style type="text/tailwindcss">
-        @layer components {
-            .btn-primary {
-                @apply px-6 py-3 rounded-lg bg-gradient-to-r from-accent-500 to-blue-500 text-white font-medium hover:from-accent-600 hover:to-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-blue-500/20;
-            }
-            .project-card {
-                @apply bg-gray-800/50 rounded-xl overflow-hidden hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300;
-            }
-            .tech-badge {
-                @apply px-3 py-1 rounded-full text-xs font-mono bg-accent-500/10 text-accent-400;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Portafolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-primary-900 text-gray-100 min-h-screen font-sans">
-    <!-- Navbar -->
-    <nav class="bg-gray-800/90 backdrop-blur-sm fixed w-full z-50 px-6 py-4">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="{{ url_for('home') }}" class="text-2xl font-bold bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">
-                AI Dev Bro
-            </a>
-            <div class="hidden md:flex space-x-6">
-                <a href="{{ url_for('home') }}" class="px-4 py-2 rounded-md hover:bg-white/5">Inicio</a>
-                <a href="{{ url_for('portfolio') }}" class="px-4 py-2 rounded-md bg-blue-600/20 text-blue-400">Portafolio</a>
-                <a href="#contact" class="px-4 py-2 rounded-md hover:bg-white/5">Contacto</a>
-            </div>
-        </div>
-    </nav>
+<body class="bg-gray-100 text-gray-800">
 
-    <!-- Contenido Principal -->
-    <main class="pt-32 pb-20 px-6 max-w-7xl mx-auto">
-        <!-- Hero -->
-        <section class="text-center mb-20">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                <span class="bg-gradient-to-r from-accent-500 to-blue-500 bg-clip-text text-transparent">Mis</span>
-                <span class="block">Proyectos</span>
-            </h1>
-            <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-                Soluciones tecnológicas innovadoras desarrolladas con las últimas herramientas.
-            </p>
-        </section>
+  <!-- Header -->
+  <header class="bg-white shadow">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-blue-600">BitAnkor</h1>
+      <nav class="space-x-4">
+        <a href="#" class="text-gray-700 hover:text-blue-600">Inicio</a>
+        <a href="#proyectos" class="text-gray-700 hover:text-blue-600">Proyectos</a>
+        <a href="#contacto" class="text-gray-700 hover:text-blue-600">Contacto</a>
+      </nav>
+    </div>
+  </header>
 
-        <!-- Grid de Proyectos -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Proyecto 1 -->
-            <div class="project-card">
-                <div class="h-48 bg-gradient-to-br from-purple-500 to-blue-600 flex items-center justify-center">
-                    <span class="text-xl font-bold">Proyecto IA</span>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">Sistema de Recomendación</h3>
-                    <p class="text-gray-400 mb-4">Modelo de ML con 92% de precisión en predicciones.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">TensorFlow</span>
-                    </div>
-                    <a href="#" class="mt-4 inline-block text-blue-400 hover:text-blue-300 text-sm font-medium">
-                        Ver detalles →
-                    </a>
-                </div>
-            </div>
+  <!-- Hero -->
+  <section class="bg-blue-600 text-white py-20 text-center">
+    <h2 class="text-4xl font-bold mb-4">Hola, soy BitAnkor</h2>
+    <p class="text-lg">Desarrollador Python & Web. Bienvenido a mi portafolio.</p>
+  </section>
 
-            <!-- Proyecto 2 -->
-            <div class="project-card">
-                <div class="h-48 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
-                    <span class="text-xl font-bold">Dashboard</span>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">Visualización de Datos</h3>
-                    <p class="text-gray-400 mb-4">Plataforma analítica en tiempo real.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="tech-badge">JavaScript</span>
-                        <span class="tech-badge">D3.js</span>
-                    </div>
-                    <a href="#" class="mt-4 inline-block text-blue-400 hover:text-blue-300 text-sm font-medium">
-                        Ver detalles →
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Añade más proyectos aquí -->
-        </div>
-    </main>
+  <!-- Proyectos -->
+  <section id="proyectos" class="py-16 px-6 max-w-6xl mx-auto">
+    <h3 class="text-3xl font-bold text-center mb-10">Mis Proyectos</h3>
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Proyecto 1 -->
+      <div class="bg-white rounded-2xl shadow p-6 hover:shadow-lg transition">
+        <h4 class="text-xl font-semibold mb-2">AI Dev Bro</h4>
+        <p class="text-gray-600 mb-4">Asistente web para mostrar portafolio y ayudar en la búsqueda de empleo.</p>
+        <a href="https://github.com/BitAnkor/AI-Dev-Bro" target="_blank" class="text-blue-600 font-semibold hover:underline">Ver en GitHub</a>
+      </div>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800/80 py-12 px-6">
-        <div class="max-w-7xl mx-auto text-center">
-            <p class="text-gray-400">© 2023 AI Dev Bro. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+      <!-- Proyecto 2 -->
+      <div class="bg-white rounded-2xl shadow p-6 hover:shadow-lg transition">
+        <h4 class="text-xl font-semibold mb-2">Redimensionador de Imágenes</h4>
+        <p class="text-gray-600 mb-4">App con GUI para redimensionar y recortar imágenes fácilmente.</p>
+        <a href="#" class="text-blue-600 font-semibold hover:underline">Ver más</a>
+      </div>
+
+      <!-- Proyecto 3 -->
+      <div class="bg-white rounded-2xl shadow p-6 hover:shadow-lg transition">
+        <h4 class="text-xl font-semibold mb-2">Blog API con FastAPI</h4>
+        <p class="text-gray-600 mb-4">API RESTful con autenticación, comentarios y sección de logs.</p>
+        <a href="#" class="text-blue-600 font-semibold hover:underline">Ver más</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="bg-white py-16 text-center">
+    <h3 class="text-3xl font-bold mb-6">Contáctame</h3>
+    <p class="text-gray-600 mb-4">¿Te interesa trabajar conmigo? ¡Hablemos!</p>
+    <a href="mailto:bitankor@ejemplo.com" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition">
+      Enviar correo
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-4 text-center">
+    <p>&copy; 2025 BitAnkor. Todos los derechos reservados.</p>
+  </footer>
+
 </body>
 </html>
