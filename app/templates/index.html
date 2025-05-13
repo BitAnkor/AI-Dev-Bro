@@ -1,161 +1,67 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Dev Bro - Full Stack Developer</title>
-    <!-- Tailwind CSS via CDN (solo para desarrollo) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Configuración personalizada -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            900: '#0f172a',
-                            800: '#1e293b',
-                            700: '#334155',
-                        },
-                        accent: {
-                            500: '#6366f1',
-                            600: '#4f46e5',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    <!-- Font Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <style type="text/tailwindcss">
-        @layer components {
-            .btn-primary {
-                @apply px-6 py-3 rounded-lg bg-accent-500 text-white font-medium hover:bg-accent-600 transition-all duration-300 shadow-lg hover:shadow-accent-500/30;
-            }
-            .glass-effect {
-                @apply bg-white/5 backdrop-blur-md border border-white/10;
-            }
-        }
-    </style>
-</head>
-<body class="bg-primary-900 text-gray-100 font-sans min-h-screen">
-    <!-- Navbar -->
-    <nav class="glass-effect fixed w-full z-50">
-        <div class="max-w-7xl mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <div class="text-2xl font-bold bg-gradient-to-r from-accent-500 to-cyan-400 bg-clip-text text-transparent">
-                    AI Dev Bro
-                </div>
-                <div class="hidden md:flex space-x-6">
-                    <a href="#" class="px-4 py-2 rounded-md bg-accent-500/20 text-accent-400">Inicio</a>
-                    <a href="#" class="px-4 py-2 rounded-md hover:bg-white/5">Proyectos</a>
-                    <a href="#" class="px-4 py-2 rounded-md hover:bg-white/5">Contacto</a>
-                </div>
-                <button class="md:hidden text-gray-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </nav>
+{% extends "base.html" %}
+{% block title %}AI Dev Bro - Portafolio{% endblock %}
 
-    <!-- Hero Section -->
-    <section class="pt-32 pb-20 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
-                <span class="bg-gradient-to-r from-accent-500 to-cyan-400 bg-clip-text text-transparent">Desarrollo</span>
-                <span class="block">soluciones con IA</span>
-            </h1>
-            <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
-                Creando aplicaciones web inteligentes y escalables con tecnologías modernas.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#" class="btn-primary">
-                    Ver mis proyectos
-                </a>
-                <a href="#" class="px-6 py-3 rounded-lg border border-accent-500 text-accent-400 hover:bg-accent-500/10 transition-all">
-                    Contactar
-                </a>
-            </div>
-        </div>
-    </section>
+{% block content %}
+<section class="pt-32 pb-20 px-6 text-center">
+  <div class="max-w-3xl mx-auto">
+    <h1 class="text-5xl font-bold mb-6">
+      <span class="bg-gradient-to-r from-accent-500 to-cyan-400 bg-clip-text text-transparent">BitAnkor</span><br>
+      Full Stack Developer
+    </h1>
+    <p class="text-gray-400 text-lg mb-8">
+      Desarrollo soluciones web modernas con IA, APIs y herramientas de alto rendimiento.
+    </p>
+    <a href="#proyectos" class="bg-accent-500 px-6 py-3 rounded-lg text-white hover:bg-accent-600 transition">
+      Ver Proyectos
+    </a>
+  </div>
+</section>
 
-    <!-- Tech Stack -->
-    <section class="py-16 px-6">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12 relative inline-block mx-auto">
-                <span class="relative z-10 px-4">Tecnologías</span>
-                <span class="absolute bottom-0 left-0 w-full h-2 bg-accent-500/30 z-0"></span>
-            </h2>
-            
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
-                <!-- Ejemplo de tecnología -->
-                <div class="glass-effect p-6 rounded-xl flex flex-col items-center">
-                    <div class="w-16 h-16 mb-4 flex items-center justify-center">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-full h-full">
-                    </div>
-                    <span class="font-medium">Python</span>
-                </div>
-                <!-- Más tecnologías... -->
-            </div>
-        </div>
-    </section>
+<!-- Tecnologías -->
+<section class="py-16 px-6">
+  <div class="max-w-7xl mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-12">Tecnologías</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+      {% for tech in ['python', 'fastapi', 'tailwindcss', 'javascript', 'docker'] %}
+      <div class="bg-white/5 backdrop-blur p-6 rounded-xl border border-white/10">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/{{ tech }}/{{ tech }}-original.svg" class="w-12 h-12 mx-auto mb-2" alt="{{ tech }}">
+        <p class="text-sm mt-2 capitalize">{{ tech }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
 
-    <!-- Projects -->
-    <section class="py-16 px-6 bg-primary-800/50">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12">
-                <span class="border-b-2 border-accent-500 pb-2">Proyectos Recientes</span>
-            </h2>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Ejemplo de proyecto -->
-                <div class="glass-effect rounded-xl overflow-hidden hover:shadow-lg hover:shadow-accent-500/10 transition-all">
-                    <div class="h-48 bg-gradient-to-br from-accent-500 to-primary-700 flex items-center justify-center">
-                        <span class="text-2xl font-bold">Proyecto IA</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Sistema de Recomendación</h3>
-                        <p class="text-gray-400 mb-4">Modelo de machine learning para recomendaciones personalizadas.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-xs px-3 py-1 rounded-full bg-accent-500/20 text-accent-400">Python</span>
-                            <span class="text-xs px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-400">FastAPI</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Más proyectos... -->
-            </div>
+<!-- Proyectos -->
+<section id="proyectos" class="py-16 px-6 bg-primary-800/50">
+  <div class="max-w-7xl mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-12">Proyectos</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Proyecto 1 -->
+      <div class="bg-white/5 rounded-xl overflow-hidden border border-white/10 hover:shadow-lg transition">
+        <div class="h-40 bg-gradient-to-br from-accent-500 to-cyan-500 flex items-center justify-center text-xl font-bold text-white">
+          AI Dev Bro
         </div>
-    </section>
+        <div class="p-6 text-left">
+          <h3 class="text-xl font-bold mb-2">Asistente IA Personal</h3>
+          <p class="text-gray-400 text-sm mb-3">Web con portafolio interactivo y chatbot integrado con OpenAI.</p>
+          <div class="flex gap-2 flex-wrap text-xs">
+            <span class="px-3 py-1 rounded-full bg-accent-500/20 text-accent-400">FastAPI</span>
+            <span class="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-400">Tailwind</span>
+          </div>
+        </div>
+      </div>
+      <!-- Puedes agregar más proyectos aquí -->
+    </div>
+  </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="py-12 px-6 bg-primary-800">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <span class="text-2xl font-bold bg-gradient-to-r from-accent-500 to-cyan-400 bg-clip-text text-transparent">
-                        AI Dev Bro
-                    </span>
-                    <p class="mt-2 text-gray-400">Desarrollando el futuro con código</p>
-                </div>
-                <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                    </a>
-                    <!-- Más redes sociales... -->
-                </div>
-            </div>
-            <div class="mt-8 pt-8 border-t border-primary-700 text-center text-gray-500 text-sm">
-                <p>© 2023 AI Dev Bro. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
-</body>
-</html>
+<!-- Contacto -->
+<section id="contacto" class="py-16 px-6 text-center">
+  <h2 class="text-3xl font-bold mb-6">Contacto</h2>
+  <p class="text-gray-400 mb-4">¿Te interesa colaborar? ¡Hablemos!</p>
+  <a href="mailto:bitankor@ejemplo.com" class="px-6 py-3 bg-accent-500 rounded-lg text-white font-medium hover:bg-accent-600 transition">
+    bitankor@ejemplo.com
+  </a>
+</section>
+{% endblock %}
